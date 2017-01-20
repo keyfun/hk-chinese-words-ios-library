@@ -1,0 +1,16 @@
+PODS:
+  - HKChineseWords (0.1.0)
+
+DEPENDENCIES:
+  - HKChineseWords (from `../`)
+
+EXTERNAL SOURCES:
+  HKChineseWords:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HKChineseWords: 0ee4bc6f5c0e1358bdc3486399908f21f8588ba3
+
+PODFILE CHECKSUM: f85c7e22b73b2f06bc5856df2a458cb866a84a9e
+
+COCOAPODS: 1.1.1

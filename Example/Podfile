@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'HKChineseWords_Example' do
+  pod 'HKChineseWords', :path => '../'
+
+  target 'HKChineseWords_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
