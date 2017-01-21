@@ -11,6 +11,8 @@ import HKChineseWords
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var gifImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,8 +32,15 @@ class ViewController: UIViewController {
     
     func testHKChineseWords() {
         print(HKChineseWords.sharedInstance.getInfo())
+        HKChineseWords.sharedInstance.search("許", onComplete: {
+            url in
+            print(url)
+            self.setImageUrl(url)
+        })
+    }
+    
+    func setImageUrl(_ url:String) {
         
-        HKChineseWords.sharedInstance.search("許")
     }
 
 }

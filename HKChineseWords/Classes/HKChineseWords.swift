@@ -24,7 +24,7 @@ public class HKChineseWords {
         return POST_URL
     }
     
-    public func search(_ text:String) {
+    public func search(_ text:String, onComplete: @escaping (String) -> Void) {
         var request = URLRequest(url: URL(string: POST_URL)!)
         request.httpMethod = "POST"
         let postString = "searchMethod=direct&sortBy=storke&jpC=Ishk&searchCriteria=" + text
@@ -49,6 +49,7 @@ public class HKChineseWords {
                     print("word id = \(id)")
                     let url:String = self.getImageUrl(id)
                     print("gif url = \(url)")
+                    onComplete(url)
                 } else {
                     print("Invalid id")
                 }
