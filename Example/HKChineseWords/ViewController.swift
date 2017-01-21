@@ -24,12 +24,14 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        testConnection()
+        // start run testing
+        testHKChineseWords()
     }
     
-    func testConnection() {
-        let lib = HKChineseWords()
-        print(lib.info())
+    func testHKChineseWords() {
+        print(HKChineseWords.sharedInstance.getInfo())
+        
+        HKChineseWords.sharedInstance.search("許")
     }
 
 }
