@@ -1,3 +1,11 @@
+//
+//  HKChineseWords.swift
+//  HKChineseWords
+//
+//  Created by Key Hui on 01/20/2017.
+//  Copyright (c) 2017 Key Hui. All rights reserved.
+//
+
 import Foundation
 
 public class HKChineseWords {
