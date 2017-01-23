@@ -61,7 +61,8 @@ public class HKChineseWords {
             let responseString = String(data: data, encoding: .utf8)
 //            print("responseString = \(responseString)")
             if responseString != nil {
-                if let id:Int = self.getWordId(responseString!) {
+                let id:Int = self.getWordId(responseString!)
+                if id != -1 {
                     print("word id = \(id)")
                     let url:String = self.getImageUrl(id)
                     print("gif url = \(url)")
@@ -82,10 +83,10 @@ public class HKChineseWords {
             let hi = text.index(range.lowerBound, offsetBy: PATTERN.characters.count + 4)
             let subRange = lo ..< hi
             let id:String = text[subRange]
-            print("find id = \(id)")
+//            print("find id = \(id)")
             
-            if let idInt:Int? = Int(id) {
-                return idInt!
+            if let idInt:Int = Int(id) {
+                return idInt
             }
         }
         return -1
