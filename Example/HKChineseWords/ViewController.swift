@@ -11,7 +11,9 @@ import HKChineseWords
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var gifImage: UIImageView!
+    @IBOutlet weak var gifImageView: UIImageView!
+    var wordArr = Array<String>()
+    var index:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,21 +29,47 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         // start run testing
-        testHKChineseWords()
+//        testHKChineseWord("早")
+        testHKChineseWords("早前網上傳言今年新春氣溫會跌至個位數")
     }
     
-    func testHKChineseWords() {
-        print(HKChineseWords.sharedInstance.getInfo())
-        HKChineseWords.sharedInstance.search("許", onComplete: {
-            url in
-            print(url)
-            self.setImageUrl(url)
-        })
-    }
-    
-    func setImageUrl(_ url:String) {
+    func testHKChineseWords(_ text:String) {
+        for character in text.characters {
+            let char:String = String(character)
+//            print(char)
+            wordArr.append(char)
+        }
         
+        index = 0
+        testHKChineseWord(wordArr[index])
     }
-
+    
+    func testHKChineseWord(_ word:String) {
+        print(HKChineseWords.sharedInstance.getInfo())
+        
+        HKChineseWords.sharedInstance.getImages(word) { (images:Array<UIImage>, error:Error?) in
+            self.setImages(images)
+        }
+    }
+    
+    func setImages(_ images:Array<UIImage>) {
+        self.gifImageView.animationImages = images
+        self.gifImageView.animationDuration = 5.0
+        self.gifImageView.animationRepeatCount = 1
+        self.gifImageView.startAnimating()
+        self.perform(#selector(ViewController.didAnimationFinished), with: nil, afterDelay: self.gifImageView.animationDuration)
+    }
+    
+    func didAnimationFinished() {
+        print("didAnimationFinished")
+        self.gifImageView.stopAnimating()
+        
+        if index < wordArr.count - 1 {
+            index += 1
+            testHKChineseWord(wordArr[index])
+        } else {
+            print("Test Complete!")
+        }
+    }
 }
 
