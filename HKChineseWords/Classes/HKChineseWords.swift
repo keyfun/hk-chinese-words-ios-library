@@ -98,6 +98,7 @@ public class HKChineseWords {
         
         var idStr:String = String(id)
         var lowerStr:String = ""
+        var upperStr:String = ""
         if id < 1000 {
             // append leading zero
             lowerStr = String(format: "%04d", lower + 1)
@@ -106,8 +107,13 @@ public class HKChineseWords {
             lowerStr = String(lower * 1000 + 1)
         }
         
+        if id > 4000 {
+            upperStr = "ZC"
+        } else {
+            upperStr = String(upper)
+        }
         
-        let subPath:String = lowerStr + "-" + String(upper)
+        let subPath:String = lowerStr + "-" + upperStr
         let url:String = String(format: GIF_URL, subPath, idStr)
         return url
     }
@@ -130,7 +136,8 @@ public class HKChineseWords {
                     // return image data
                     self.convertImageArr(image, completion: completion)
                 } else {
-                    print("Download Failed")
+//                    print("Download Failed")
+                    completion([], NSError(domain:"keyfun.app.HKChineseWords", code:404, userInfo:nil))
                 }
             }
         }

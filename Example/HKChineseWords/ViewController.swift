@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         
         // start run testing
 //        testHKChineseWord("早")
-        testHKChineseWords("早前網上傳言今年新春氣溫會跌至個位數")
+        testHKChineseWords("點難早前網上傳言今年新春氣溫會跌至個位數")
     }
     
     func testHKChineseWords(_ text:String) {
@@ -48,7 +48,10 @@ class ViewController: UIViewController {
         print(HKChineseWords.sharedInstance.getInfo())
         
         HKChineseWords.sharedInstance.getImages(word) { (images:Array<UIImage>, error:Error?) in
-            self.setImages(images)
+            print("error = \(error)")
+            if error == nil {
+                self.setImages(images)
+            }
         }
     }
     
