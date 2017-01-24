@@ -1,7 +1,7 @@
 # hk-chinese-words-ios-library
 香港小學學習字詞表 iOS Library
 
-[![CI Status](http://img.shields.io/travis/keyfun/HKChineseWords.svg?style=flat)](https://travis-ci.org/keyfun/HKChineseWords)
+[![CI Status](http://img.shields.io/travis/keyfun/hk-chinese-words-ios-library.svg?style=flat)](https://travis-ci.org/keyfun/hk-chinese-words-ios-library)
 [![Version](https://img.shields.io/cocoapods/v/HKChineseWords.svg?style=flat)](http://cocoapods.org/pods/HKChineseWords)
 [![License](https://img.shields.io/cocoapods/l/HKChineseWords.svg?style=flat)](http://cocoapods.org/pods/HKChineseWords)
 [![Platform](https://img.shields.io/cocoapods/p/HKChineseWords.svg?style=flat)](http://cocoapods.org/pods/HKChineseWords)
