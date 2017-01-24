@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HKChineseWords'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A library to get Hong Kong Chinese Words stoke input sequence.'
 
 # This description is used to generate tags and improve search results.
@@ -23,21 +23,12 @@ Source: http://www.edbchinese.hk/lexlist_ch/
                        DESC
 
   s.homepage         = 'https://github.com/keyfun/hk-chinese-words-ios-library'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Key Hui' => 'keyfun.hk@gmail.com' }
+  s.author           = { 'Key Fun' => 'keyfun.hk@gmail.com' }
   s.source           = { :git => 'https://github.com/keyfun/hk-chinese-words-ios-library.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'HKChineseWords/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'HKChineseWords' => ['HKChineseWords/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
