@@ -4,3 +4,4 @@ xcode_sdk: iphonesimulator10.1
 xcode_workspace: Example/HKChineseWords.xcworkspace
 xcode_scheme: HKChineseWords_Example
 podfile: Example/Podfile
+script: xcodebuild
