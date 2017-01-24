@@ -21,6 +21,13 @@ it, simply add the following line to your Podfile:
 pod 'HKChineseWords'
 ```
 
+## Usage
+
+```swift
+HKChineseWords.sharedInstance.getImages(word) { (images:Array<UIImage>, error:Error?) in
+            self.setImages(images)
+        }
+```
 
 Official Website
 http://www.edbchinese.hk/lexlist_ch/
