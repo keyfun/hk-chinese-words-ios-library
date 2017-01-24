@@ -1,7 +1,5 @@
 language: objective-c
 osx_image: xcode8.2
-xcode_sdk: iphonesimulator10.1
-xcode_workspace: Example/HKChineseWords.xcworkspace
-xcode_scheme: HKChineseWords_Example
 podfile: Example/Podfile
-script: xcodebuild
+script:xcodebuild -workspace Example/HKChineseWords.xcworkspace -scheme "HKChineseWords_Example" -destination "platform=iOS Simulator,name=iPhone 7"
+
