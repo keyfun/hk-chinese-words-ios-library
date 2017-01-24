@@ -33,14 +33,16 @@ public class HKChineseWords {
     }
     
     public func getImages(_ text:String, completion: @escaping (_ images: Array<UIImage>, _ error: Error?) -> Void) {
-        self.getUrl(text) { (url:String) in
+        self.getUrl(text) { (url:String, error:Error?) in
             if let checkedUrl = URL(string: url) {
                 self.downloadImage(url: checkedUrl, completion: completion)
+            } else {
+                completion([], error)
             }
         }
     }
     
-    public func getUrl(_ text:String, completion: @escaping (_ url:String) -> Void) {
+    public func getUrl(_ text:String, completion: @escaping (_ url:String, _ error:Error?) -> Void) {
         var request = URLRequest(url: URL(string: POST_URL)!)
         request.httpMethod = "POST"
         let postString = "searchMethod=direct&sortBy=storke&jpC=Ishk&searchCriteria=" + text
@@ -66,9 +68,10 @@ public class HKChineseWords {
                     print("word id = \(id)")
                     let url:String = self.getImageUrl(id)
                     print("gif url = \(url)")
-                    completion(url)
+                    completion(url, nil)
                 } else {
                     print("Invalid id")
+                    completion("", NSError(domain:"keyfun.app.HKChineseWords", code:405, userInfo:nil))
                 }
             } else {
                 print("Invalid responseString")

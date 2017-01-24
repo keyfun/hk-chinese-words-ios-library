@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         
         // start run testing
 //        testHKChineseWord("早")
-        testHKChineseWords("點難早前網上傳言今年新春氣溫會跌至個位數")
+        testHKChineseWords("冇點難早前網上傳言今年新春氣溫會跌至個位數")
     }
     
     func testHKChineseWords(_ text:String) {
@@ -51,13 +51,16 @@ class ViewController: UIViewController {
             print("error = \(error)")
             if error == nil {
                 self.setImages(images)
+            } else {
+                // call next
+                self.didAnimationFinished()
             }
         }
     }
     
     func setImages(_ images:Array<UIImage>) {
         self.gifImageView.animationImages = images
-        self.gifImageView.animationDuration = 5.0
+        self.gifImageView.animationDuration = 0.5 * Double(images.count)
         self.gifImageView.animationRepeatCount = 1
         self.gifImageView.startAnimating()
         self.perform(#selector(ViewController.didAnimationFinished), with: nil, afterDelay: self.gifImageView.animationDuration)
