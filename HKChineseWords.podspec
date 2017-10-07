@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HKChineseWords'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'A library to get Hong Kong Chinese Words stoke input sequence.'
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Source: http://www.edbchinese.hk/lexlist_ch/
   s.author           = { 'Key Fun' => 'keyfun.hk@gmail.com' }
   s.source           = { :git => 'https://github.com/keyfun/hk-chinese-words-ios-library.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'HKChineseWords/Classes/**/*'
   

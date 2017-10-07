@@ -1,5 +1,8 @@
 use_frameworks!
 
+platform :ios, '9.0'
+inhibit_all_warnings!
+
 target 'HKChineseWords_Example' do
   pod 'HKChineseWords', :path => '../'
 
