@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     }
     
     func testHKChineseWords(_ text:String) {
-        for character in text.characters {
+        for character in text {
             let char:String = String(character)
 //            print(char)
             wordArr.append(char)
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         print(HKChineseWords.sharedInstance.getInfo())
         
         HKChineseWords.sharedInstance.getImages(word) { (images:Array<UIImage>, error:Error?) in
-            print("error = \(error)")
+            print("error = \(String(describing: error))")
             if error == nil {
                 self.setImages(images)
             } else {
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         self.perform(#selector(ViewController.didAnimationFinished), with: nil, afterDelay: self.gifImageView.animationDuration)
     }
     
-    func didAnimationFinished() {
+    @objc func didAnimationFinished() {
         print("didAnimationFinished")
         self.gifImageView.stopAnimating()
         

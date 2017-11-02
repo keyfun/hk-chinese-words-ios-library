@@ -50,14 +50,14 @@ public class HKChineseWords {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 // check for fundamental networking error
-                print("error=\(error)")
+                print("error=\(String(describing: error))")
                 return
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 // check for http errors
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
+                print("response = \(String(describing: response))")
             }
             
             let responseString = String(data: data, encoding: .utf8)
@@ -82,10 +82,10 @@ public class HKChineseWords {
     
     private func getWordId(_ text:String) -> Int {
         if let range = text.range(of: PATTERN) {
-            let lo = text.index(range.lowerBound, offsetBy: PATTERN.characters.count)
-            let hi = text.index(range.lowerBound, offsetBy: PATTERN.characters.count + 4)
+            let lo = text.index(range.lowerBound, offsetBy: PATTERN.count)
+            let hi = text.index(range.lowerBound, offsetBy: PATTERN.count + 4)
             let subRange = lo ..< hi
-            let id:String = text[subRange]
+            let id:String = String(text[subRange])
 //            print("find id = \(id)")
             
             if let idInt:Int = Int(id) {
